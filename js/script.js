@@ -52,13 +52,14 @@ function getForecast(lat, lon){
 function displayWeather(data){
 weatherContainer.innerHTML=""
 
-
+const col = document.createElement("div");
+col.setAttribute("class", "col-2");
 const card=document.createElement("div")
 card.setAttribute("class","card")
 
 const cardHeader=document.createElement("div")
 cardHeader.setAttribute("class", "card-header")
-const h4= document.createElement("h4")
+const h3= document.createElement("h3")
 const span= document.createElement("span")
 const icon= document.createElement("img")
 icon.setAttribute("src", "https://openweathermap.org/img/w/"+ data.weather[0].icon +".png")
@@ -68,7 +69,7 @@ const temp= document.createElement("p")
 const humidity= document.createElement("p")
 const wind=document.createElement("p")
 
-h4.textContent= data.name
+h3.textContent= data.name
 temp.textContent=`Temperature: ${data.main.temp} Celsius`
 humidity.textContent=`Humidity: ${data.main.humidity} %`
 wind.textContent=`Wind Speed: ${data.wind.speed} KPH`
@@ -76,12 +77,12 @@ wind.textContent=`Wind Speed: ${data.wind.speed} KPH`
 //append all items
 
 span.append(icon)
-h4.append(span)
-cardHeader.append(h4)
+h3.append(span)
+cardHeader.append(h3)
 cardBody.append( temp, humidity,wind)
 card.append(cardHeader, cardBody)
-
-  weatherContainer.append(card)
+col.append(card)
+weatherContainer.append(col)
 }
 
 function displayForecast(data){
@@ -92,14 +93,14 @@ function displayForecast(data){
     const index= i * 8 + 4
     const day= new Date(data[index].dt*1000).toDateString()
 
-  const col= document.createElement("div")
-  col.setAttribute("class", "col-md-4")
+const col= document.createElement("div")
+col.setAttribute("class", "col-2")
 const card=document.createElement("div")
 card.setAttribute("class","card")
 
 const cardHeader=document.createElement("div")
 cardHeader.setAttribute("class", "card-header")
-const h4= document.createElement("h4")
+const h3= document.createElement("h3")
 const span= document.createElement("span")
 const icon= document.createElement("img")
 icon.setAttribute("src", "https://openweathermap.org/img/w/"+ data[index].weather[0].icon +".png")
@@ -109,7 +110,7 @@ const temp= document.createElement("p")
 const humidity= document.createElement("p")
 const wind=document.createElement("p")
 
-h4.textContent= day
+h3.textContent= day
 temp.textContent=`Temperature: ${data[index].main.temp} Celsius`
 humidity.textContent=`Humidity: ${data[index].main.humidity} %`
 wind.textContent=`Wind Speed: ${data[index].wind.speed} KPH`
@@ -117,12 +118,12 @@ wind.textContent=`Wind Speed: ${data[index].wind.speed} KPH`
 //append all items
 
 span.append(icon)
-h4.append(span)
-cardHeader.append(h4)
+h3.append(span)
+cardHeader.append(h3)
 cardBody.append( temp, humidity,wind)
 card.append(cardHeader, cardBody)
 col.append(card)
-forecastContainer.append(col)
+weatherContainer.append(col)
     
   }
 

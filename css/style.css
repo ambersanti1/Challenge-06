@@ -5,17 +5,6 @@
   background: blue;
 }
 
-.forecast-box{
-  display: flex;
-  flex-wrap:wrap;
-  justify-content: center;
-  border: 1px solid black hidden;
-}
-
-.container {
-  padding: 0;
-  
-}
 .card{
   overflow: hidden;
   border-radius: 50px;
@@ -25,10 +14,25 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
 li {
   font-size: 15px;
 }
 
 .history {
   padding: 20px;
+}
+
+
+.box {
+  display:flex;
+  flex-direction: row;
+}
+
+.btn{
+  margin: 10px;
+}
+
+h3 {
+  font-size: 30px;
 }
